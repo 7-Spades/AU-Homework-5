@@ -1,6 +1,24 @@
+html body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 header{
     border-bottom: 5px solid;
 }
+
 button{
     padding: 6px;
+}
+
+footer{
+    flex-shrink: 0;
+    background-color: black;
+    padding: 30px;
+
+}
+#panel{
+    flex: 1 0 auto;
+    margin-bottom: 50px;
 }
