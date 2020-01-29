@@ -3,7 +3,6 @@ console.log(moment);
 
 $(document).ready(function(){
     var stamp= $("#timestamper");
-    var record= $("#recorder");
     var saver= $(".saveState");
 
     stamp.text(moment().format(" h:mm a, MMMM Do YYYY"));
@@ -12,10 +11,11 @@ $(document).ready(function(){
 
     saver.on("click", function(event){
         event.preventDefault();
-        var rec= record.val();
         
-        localStorage.setItem("Agenda", rec);
-        displayrecord();
+        for(var i=0; i<9; i++){ 
+        localStorage.setItem("Agenda 0"+i, $("#recorder"+i).val());
+        };
+        
     });
 
     $("form").on("submit", function(event){
@@ -23,7 +23,9 @@ $(document).ready(function(){
     });
 
     function displayrecord(){
-    record.attr("value", localStorage.getItem("Agenda"))
+        for(var i=0; i<9; i++){ 
+    $("#recorder"+i).attr("value", localStorage.getItem("Agenda 0"+i));
+        };
     };
 
 });
