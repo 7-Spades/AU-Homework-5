@@ -28,4 +28,13 @@ $(document).ready(function(){
         };
     };
 
+    var size= window.matchMedia("(max-width: 1024px)");
+    var tiny= window.matchMedia("(max-width: 575px)");
+    console.log(size);
+    console.log(tiny);
+   if(size.matches === true && tiny.matches== false){
+       $("input").attr("size", "50")
+   } else if(tiny.matches === true && size.matches=== true){
+       $("input").attr("size", "15")
+   };
 });
